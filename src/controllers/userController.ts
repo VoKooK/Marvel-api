@@ -4,12 +4,11 @@ import { publicCharacters } from "../services/userService";
 
 export const allCharacters = async (req: Request, res: Response) => {
 
-    const user = await publicCharacters();
-    if (user) {
-        const characters = user.data.results.map(a => `personaje ${a.name}`)
-        res.status(200).json(characters);
+    const charactersAll = await publicCharacters();
+    if (charactersAll.success) {
+        res.status(200).json(charactersAll);
     } else {
-        console.log("Error al hacer la peticion")
+        res.status(500).json({ Error: charactersAll })
     }
 };
 

@@ -1,3 +1,10 @@
+//Modelo de retorno de data y error
+export interface ApiResponseModel<T> {
+  success: boolean;
+  data?: T;
+  error?: string;
+}
+
 // Modelo principal para la respuesta de la API
 export interface allCharactersModel {
     code: number;
